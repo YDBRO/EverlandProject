@@ -13,9 +13,10 @@ public class EverLandClass {
 		// TODO Auto-generated method stub
 
 		
-	    public int todayYear, todayDate, birthYear, birthMonth, birthDay, birthDate, reservationDate, benefit, count, manAge, price = 0; 
-		public int Count = 0, Price = 0, addOrder = 0;
+	    public int todayYear, todayDate, birthYear, birthMonth, birthDay, birthDate, reservationDate, benefit, count, manAge ; 
+		public int Count = 0, Price = 0, addOrder = 0, inputCoupon = 0, price = 0 ; 
 		public String ticket = "", socialNumber, age = null, B = "";
+		public String isEventCoupon ="" ;
         
 		
         
@@ -29,33 +30,7 @@ public class EverLandClass {
 	    todayDate = Integer.parseInt(today.substring(4,8));
 	    Scanner myInput = new Scanner(System.in);
 		}
-
-        
-//        int add_Order = 0;
-//        int orderCount = 0;
-//        // 누적 변수
-//     
-//        int totalsum1 = 0;
-//        
-//		String[] saveB = new String[100];
-//		int[] saveprice = new int[100];
-//        int[] saveCount = new int[100];
-//        
-//        String[] saveTicket = new String[100];
-//        String[] saveAge = new String[100];
-        
-		
-	
-
-	   
 	    
-//	    int addOrder = 0;
-//	    arrTicket.clear();
-//		arrAge.clear();
-//		arrCount.clear();
-//		arrPrice.clear();
-//		arrB.clear();
-//	    
         public void InsertDate() {
 	    		
 				System.out.println("--------------------------------------");
@@ -106,7 +81,7 @@ public class EverLandClass {
 				}
 			}
 
-        	public void TicketLevel() {
+        public void TicketLevel() {
 			if(ticket == "A 티켓") {
 				price = 60000;
 			} else if(ticket == "B 티켓") {
@@ -115,7 +90,7 @@ public class EverLandClass {
 				price = 50000;
 			}
             }
-			public void InsertID() {
+		public void InsertID() {
 			while(true) {
 				System.out.print("주민번호 앞자리를 입력하세요.(숫자로만 951123)(0 누르면 처음으로)\n");
 				System.out.print(": ");
@@ -143,7 +118,7 @@ public class EverLandClass {
 			
 			
 			
-			public void BirthDate() {
+		public void BirthDate() {
 
 			birthYear = Integer.parseInt(socialNumber.substring(0,2));
 			birthDate = Integer.parseInt(socialNumber.substring(2,6));
@@ -185,7 +160,7 @@ public class EverLandClass {
 			System.out.println("ㅡ");
 			}
 			
-			public void CountTicket() {
+		public void CountTicket() {
 			
 			while(true) {
 				System.out.println("몇개를 주문하시겠습니까?(0 누르면 처음으로)");
@@ -201,7 +176,7 @@ public class EverLandClass {
 			
 
 			
-			public void ChoosePriority() {
+		public void ChoosePriority() {
 			while(true) {
 				System.out.println("우대사항을 선택하세요.(0 누르면 처음으로)");
 				System.out.println("1. 없음 (나이 우대는 자동처리)");
@@ -222,129 +197,108 @@ public class EverLandClass {
 			
 
 			switch(benefit) {
-			case 1: B = "우대적용 없음"; break;
-			case 2: B = "장애인 우대적용"; 
-			if(ticket == "A 티켓") {
-				if(age == "어른") {
-					price = 36000 ;
-				} else if(age == "36개월미만") {
-					price = 0;
-				} else {price = 28000 ;}
-			} else if(ticket == "B 티켓") {
-				if(age == "어른") {
-					price = 33000 ;
-				} else if(age == "36개월미만") {
-					price = 0;
-				} else {price = 26000;}
-			} else {
-				if(age == "어른") {
-					price = 30000;
-				} else if(age == "36개월미만") {
-					price = 0;
-				} else {price = 24000;}
-			} break;
-			case 3: B = "국가유공자 우대적용"; 
-			if(ticket == "A 티켓") {
-				if(age == "어른") {
-					price = 30000;
-				} else if(age == "36개월미만") {
-					price = 0;
-				} else {price = 24000;}
-			} else if(ticket == "B 티켓") {
-				if(age == "어른") {
-					price = 28000;
-				} else if(age == "36개월미만") {
-					price = 0;
-				} else {price = 22000;}
-			} else {
-				if(age == "어른") {
-					price = 25000;
-				} else if(age == "36개월미만") {
-					price = 0;
-				} else {price = 20000;}
-			} break;
-			case 4: B = "다자녀 우대적용"; 
-			if(ticket == "A 티켓") {
-				if(age == "어른" || age == "청소년") {
-					price = 48000;
-				} else if(age == "36개월미만") {
-					price = 0;
-				} else {price = 38000;}
-			} else if(ticket == "B 티켓") {
-				if(age == "어른" || age == "청소년") {
-					price = 44000;
-				} else if(age == "36개월미만") {
-					price = 0;
-				} else {price = 35000;}
-			} else {
-				if(age == "어른" || age == "청소년") {
-					price = 40000;
-				} else if(age == "36개월미만") {
-					price = 0;
-				} else {price = 32000;}
-			} break;
-			case 5: B = "임산부 우대적용"; 
-			if(ticket == "A 티켓") {
-				if(age == "36개월미만") {
-					price = 0;
-				} else {price = 51000;}
-			} else if(ticket == "B 티켓") {
-				if(age == "36개월미만") {
-					price = 0;
-				} else {price = 47000;}
-			} else {
-				if(age == "36개월미만") {
-					price = 0;
-				} else {price= 42000;}
-			} break;
+				case 1: B = "우대적용 없음"; break;
+				case 2: B = "장애인 우대적용"; 
+				if(ticket == "A 티켓") {
+					if(age == "어른") {
+						price = 36000 ;
+					} else if(age == "36개월미만") {
+						price = 0;
+					} else {price = 28000 ;}
+				} else if(ticket == "B 티켓") {
+					if(age == "어른") {
+						price = 33000 ;
+					} else if(age == "36개월미만") {
+						price = 0;
+					} else {price = 26000;}
+				} else {
+					if(age == "어른") {
+						price = 30000;
+					} else if(age == "36개월미만") {
+						price = 0;
+					} else {price = 24000;}
+				} break;
+				case 3: B = "국가유공자 우대적용"; 
+				if(ticket == "A 티켓") {
+					if(age == "어른") {
+						price = 30000;
+					} else if(age == "36개월미만") {
+						price = 0;
+					} else {price = 24000;}
+				} else if(ticket == "B 티켓") {
+					if(age == "어른") {
+						price = 28000;
+					} else if(age == "36개월미만") {
+						price = 0;
+					} else {price = 22000;}
+				} else {
+					if(age == "어른") {
+						price = 25000;
+					} else if(age == "36개월미만") {
+						price = 0;
+					} else {price = 20000;}
+				} break;
+				case 4: B = "다자녀 우대적용"; 
+				if(ticket == "A 티켓") {
+					if(age == "어른" || age == "청소년") {
+						price = 48000;
+					} else if(age == "36개월미만") {
+						price = 0;
+					} else {price = 38000;}
+				} else if(ticket == "B 티켓") {
+					if(age == "어른" || age == "청소년") {
+						price = 44000;
+					} else if(age == "36개월미만") {
+						price = 0;
+					} else {price = 35000;}
+				} else {
+					if(age == "어른" || age == "청소년") {
+						price = 40000;
+					} else if(age == "36개월미만") {
+						price = 0;
+					} else {price = 32000;}
+				} break;
+				case 5: B = "임산부 우대적용"; 
+				if(ticket == "A 티켓") {
+					if(age == "36개월미만") {
+						price = 0;
+					} else {price = 51000;}
+				} else if(ticket == "B 티켓") {
+					if(age == "36개월미만") {
+						price = 0;
+					} else {price = 47000;}
+				} else {
+					if(age == "36개월미만") {
+						price = 0;
+					} else {price= 42000;}
+				} break;
 			}
-			}
+		}
 			
-			public void BeContinue() {
-			System.out.print("1. 추가구매, 2. 구매종료");
-			Scanner myInput5 = new Scanner(System.in);
-			addOrder = myInput5.nextInt();
+		public void Coupon() {
 			
-//			saveTicket[orderCount] = ticket;
-//			saveAge[orderCount] = age;
-//			saveCount[orderCount] = count;
-//			saveprice[orderCount] = price;
-//			saveB[orderCount] = b;
-//			orderCount++;
-//		arrTicket.add(ticket);
-//		arrAge.add(age);
-//		arrCount.add(count);
-//		arrPrice.add(price);
-//		arrB.add(b);
-//
-//		public static void main(String[] args) {	
-//			
-			/*totalsum1 += price*count;
-			/*price = saveCount[orderCount] * saveprice[orderCount];
-			/*for (int totalsum = 0; index < (saveprice[index]*saveCount[index]); index++) */
-			
-//			
-//			}
-//			
-//			
-//			while(addOrder == 1); 
-//	
-//
-//			System.out.println("ㅡ");
-////			System.out.printf("가격은 %d 입니다.\n", arrPrice.get(index)*arrCount.get(index));
-//			System.out.println("감사합니다.");
-//			System.out.println();
-//			System.out.println("=============== 에버랜드 ===============");
-//			for (int index = 0; index < arrCount.size(); index++) {
-//				System.out.printf("%s %s X %d %d %s\n", arrTicket.get(index), arrAge.get(index), arrCount.get(index), 
-//						arrPrice.get(index)*arrCount.get(index), arrB.get(index));
-//			}
-//		//	System.out.printf("%s  %s  X  %d  %d  %s\n", ticket, age, count, price*count, b);
-//			System.out.println("======================================");
-//			System.out.println();
-//			System.out.println("--------------------------------------");
-//			System.out.println();
-//			System.out.println();
+			while(true) {
+					
+				System.out.println("쿠폰유무사항 \n 1. 있음 \n 2. 없음 \n");
+				Scanner myInput5 = new Scanner(System.in);
+				int inputCoupon = myInput5.nextInt();
 
-		}		
-	}		    
+				System.out.print(": ");
+					
+				if(0 <= inputCoupon || inputCoupon <= 2 ) {
+					break;
+				} else {
+					System.out.println("쿠폰유");
+				}
+				
+		
+	
+		}
+		}	
+		public void BeContinue() {
+			System.out.println("1. 추가구매, 2. 구매종료");
+			Scanner myInput6 = new Scanner(System.in);
+			addOrder = myInput6.nextInt();
+			
+		}
+}		    

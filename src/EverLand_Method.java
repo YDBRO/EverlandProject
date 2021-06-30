@@ -18,8 +18,8 @@ public class EverLand_Method {
 
 
 	while(true) {
-		 everArray.ClearAll();
-		 do {
+//		 everArray.ClearAll();
+		 //do {
 	    	  everProcess.InsertDate();
 	    	  everProcess.TicketLevel();
 	 
@@ -33,17 +33,28 @@ public class EverLand_Method {
 	  		  everProcess.ChoosePriority();
 	  		  if(everProcess.benefit == 0) {continue;}
 	  		  System.out.println("ㅡ");
-	  
-	  		  everProcess.BeContinue();
-	  		  everArray.Arrayadd(everProcess.ticket, everProcess.age,
-	  				  			everProcess.count, everProcess.price, everProcess.B);
+	  		  everProcess.Coupon();
+	  		  
+		  	  everArray.ArrayAdd(everProcess.ticket, everProcess.age,
+				 			everProcess.count, everProcess.price, everProcess.B, everProcess.isEventCoupon);
 			  System.out.println("감사합니다.");
-		      System.out.println("=============== 에버랜드 =================");
+			  System.out.println("=============== 에버랜드 =================");
+			  
+			  everArray.Result();
+	  		  everProcess.BeContinue();
+	  		     
 
+				if(everProcess.addOrder == 1) {
+					continue;
+				} else {
+					break;
+				}
+				
+	  		  
 
-	      	}while(everProcess.addOrder == 1);
-	      	  everArray.Result();   
-	      	  break;
+//	      	}while(everProcess.addOrder == 1);
+	      	  
+	      	  //break;
 		}
 
 	}
